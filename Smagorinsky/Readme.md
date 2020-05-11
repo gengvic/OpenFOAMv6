@@ -60,7 +60,11 @@ The second line is a macro that makes sure that the Smagorinsky model is compile
 	#include "SmagorinskyC.H"
 	makeLESModel(SmagorinskyC)
 	
-Try typing ./Allwmake and it will complain that it can't find the file named SmagorinskyC.H. The reason is that the linking in the lnInclude directory was done without that file being present. We can update the linking by:
+Try typing 
+
+	./Allwmake 
+
+and it will complain that it can't find the file named SmagorinskyC.H. The reason is that the linking in the lnInclude directory was done without that file being present. We can update the linking by:
 
 	wmakeLnInclude -u turbulenceModels
 	
