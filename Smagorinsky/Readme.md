@@ -8,18 +8,3 @@ As noticed above, the implementation is now templated (different from v2.4.0). T
 	cp -r --parents src/TurbulenceModels $WM_PROJECT_USER_DIR
 	cd $WM_PROJECT_USER_DIR/src/TurbulenceModels/
 	
-  
-  
-  Find all the Make directories:
-
-$ find . -name Make
-./incompressible/Make
-./compressible/Make
-./turbulenceModels/Make
-  
-  
-	wmake libso
-	
-Move the tutorials to the desired folder e.g FOAM_RUN
-
-	mv Tutorials $FOAM_RUN
