@@ -22,6 +22,7 @@ Change the location of the compiled files in all the Make/files files:
 Compile (this will take 10min):
 
 	./Allwmake
+	
 Now there are three new shared-object files in $WM_PROJECT_USER_DIR/platforms/linux64GccDPInt32Opt/lib:
 
 	libcompressibleTurbulenceModels.so
@@ -31,6 +32,7 @@ Now there are three new shared-object files in $WM_PROJECT_USER_DIR/platforms/li
 Those will be used instead of the ones in the main installation, since the environment variable LD_LIBRARY_PATH points at that directory before pointing at the original directory $WM_PROJECT_DIR/platforms/linux64GccDPInt32Opt/lib. We can check this by:
 
 	ldd `which simpleFoam`
+	
 which returns pointers to the files in your working directory (amongst a lot of other lines):
 
 	libturbulenceModels.so => /home/oscfd/OpenFOAM/oscfd-4.x/platforms/linux64GccDPInt32Opt/lib/libturbulenceModels.so (0x00007fe8b5f79000)
@@ -73,7 +75,11 @@ Look at the start of that log file and see that the SmagorinskyC model is used.
 
 ## Now we will introduce how to recompile the .C file. 
 
-Try compiling with ./Allwmake, and it will not recognize that we did any modifications. That is because we modified a file that is not listed in any Make/files file. The way we added the compilation of the SmagorinskyC model was to modify the file compressible/turbulentFluidThermoModels/turbulentFluidThermoModels.C. The model will thus be recompiled if that file is recompiled, i.e. type:
+Try compiling with 
+
+	./Allwmake, 
+
+and it will not recognize that we did any modifications. That is because we modified a file that is not listed in any Make/files file. The way we added the compilation of the SmagorinskyC model was to modify the file compressible/turbulentFluidThermoModels/turbulentFluidThermoModels.C. The model will thus be recompiled if that file is recompiled, i.e. type:
 
 	touch compressible/turbulentFluidThermoModels/turbulentFluidThermoModels.C
 	./Allwmake
