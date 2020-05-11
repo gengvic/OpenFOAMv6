@@ -71,7 +71,7 @@ Notice that it will not be shown in the output of the compilation that the Smago
 Make sure that it worked by running the simpleFoam/pitzDaily case.
 Look at the start of that log file and see that the SmagorinskyC model is used.	
 
-##Now we will introduce how to recompile the .C file. 
+## Now we will introduce how to recompile the .C file. 
 
 Try compiling with ./Allwmake, and it will not recognize that we did any modifications. That is because we modified a file that is not listed in any Make/files file. The way we added the compilation of the SmagorinskyC model was to modify the file compressible/turbulentFluidThermoModels/turbulentFluidThermoModels.C. The model will thus be recompiled if that file is recompiled, i.e. type:
 
